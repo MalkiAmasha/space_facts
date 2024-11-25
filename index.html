@@ -4,7 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fun Space Facts</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #fact-container {
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+            border: 2px solid #61dafb;
+            border-radius: 10px;
+            background-color: #20232a;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #20232a;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #21a1f1;
+        }
+    </style>
 </head>
 <body>
     <div id="fact-container">
@@ -12,6 +44,29 @@
         <p id="fact"></p>
         <button onclick="generateFact()">Show Another Fact</button>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        const facts = [
+            "The Universe is Expanding: The universe has been expanding since the Big Bang, which occurred about 13.8 billion years ago. This expansion is happening at an accelerating rate.",
+            "There are More Stars than Grains of Sand: It's estimated that there are more stars in the universe than grains of sand on all the beaches on Earth. The observable universe alone is estimated to contain over 100 billion galaxies.",
+            "A Day on Venus is Longer than a Year: Venus has an extremely slow rotation on its axis, taking about 243 Earth days to complete one rotation. However, it only takes about 225 Earth days to orbit the Sun.",
+            "Neutron Stars are Incredibly Dense: A neutron star is so dense that a sugar-cube-sized amount of material from one would weigh about 6 billion tons on Earth.",
+            "Space is Completely Silent: There is no atmosphere in space, which means that sound has no medium or way to travel to be heard.",
+            "The Largest Volcano is on Mars: Olympus Mons on Mars is the tallest volcano and mountain in the solar system, standing at about 13.6 miles (22 kilometers) high.",
+            "Jupiter's Great Red Spot is Shrinking: This massive storm, larger than Earth, has been raging for at least 350 years, but it has been shrinking in recent decades.",
+            "There is Water in Space: Water has been found in the form of ice on the Moon, Mars, and even floating in the form of vapor around distant stars.",
+            "The Moon is Moving Away from Earth: The Moon is slowly drifting away from Earth at a rate of about 1.5 inches (3.8 centimeters) per year.",
+            "A Year on Mercury is Just 88 Days: Mercury is the closest planet to the Sun and has the shortest orbit in the solar system, taking just 88 Earth days to complete a full orbit."
+        ];
+
+        function generateFact() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            document.getElementById('fact').innerText = facts[randomIndex];
+        }
+
+        // Generate the first fact on page load
+        window.onload = generateFact;
+    </script>
 </body>
 </html>
+
